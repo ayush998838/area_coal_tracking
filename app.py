@@ -7,7 +7,11 @@ from datetime import datetime, timedelta
 import json
 import base64
 import pdfplumber
-import tabula
+try:
+    import tabula  # requires Java; not available on Streamlit Cloud
+    TABULA_AVAILABLE = True
+except Exception:
+    TABULA_AVAILABLE = False
 import io
 
 # Page configuration
